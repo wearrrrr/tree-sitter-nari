@@ -12,6 +12,31 @@ module.exports = grammar({
 
   word: $ => $.identifier,
 
+  reserved: {
+    global: $ => [
+      'break',
+      'case',
+      'catch',
+      'continue',
+      'default',
+      'else',
+      'finally',
+      'for',
+      'func',
+      'global',
+      'if',
+      'import',
+      'in',
+      'let',
+      'menu',
+      'return',
+      'switch',
+      'throw',
+      'try',
+      'while',
+    ],
+  },
+
   rules: {
     source_file: $ => repeat($._statement),
 
