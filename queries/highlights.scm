@@ -11,16 +11,20 @@
   "switch"
   "case"
   "default"
-  "return"
-  "break"
-  "continue"
-  "throw"
   "try"
   "catch"
   "finally"
   "menu"
   "import"
 ] @keyword
+
+; Control flow keywords
+[
+  "return"
+  "break"
+  "continue"
+  "throw"
+] @keyword.control
 
 ; Functions
 (function_declaration
