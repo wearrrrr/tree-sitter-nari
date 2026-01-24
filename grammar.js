@@ -212,10 +212,10 @@ module.exports = grammar({
     )),
 
     // Break statement
-    break_statement: $ => 'break',
+    break_statement: $ => seq('break'),
 
     // Continue statement
-    continue_statement: $ => 'continue',
+    continue_statement: $ => seq('continue'),
 
     // Throw statement
     throw_statement: $ => prec.right(seq(
