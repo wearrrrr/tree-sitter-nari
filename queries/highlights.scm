@@ -31,9 +31,6 @@
   function: (member_expression
     property: (identifier) @function.method))
 
-(member_expression
-  property: (identifier) @property)
-
 ; Literals
 ;---------
 
