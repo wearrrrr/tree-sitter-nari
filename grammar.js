@@ -408,6 +408,6 @@ module.exports = grammar({
 
     boolean: $ => choice('true', 'false'),
 
-    null: $ => 'nil',
+    null: $ => 'null',
   },
 });

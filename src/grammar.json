@@ -2162,7 +2162,7 @@
     },
     "null": {
       "type": "STRING",
-      "value": "nil"
+      "value": "null"
     }
   },
   "extras": [
