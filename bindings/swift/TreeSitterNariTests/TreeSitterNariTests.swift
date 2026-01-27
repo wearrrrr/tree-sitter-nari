@@ -1,12 +1,12 @@
 import XCTest
 import SwiftTreeSitter
-import TreeSitterUsl
+import TreeSitterNari
 
-final class TreeSitterUslTests: XCTestCase {
+final class TreeSitterNariTests: XCTestCase {
     func testCanLoadGrammar() throws {
         let parser = Parser()
         let language = Language(language: tree_sitter_nari())
         XCTAssertNoThrow(try parser.setLanguage(language),
-                         "Error loading USL grammar")
+                         "Error loading Nari grammar")
     }
 }

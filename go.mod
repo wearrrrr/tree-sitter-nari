@@ -1,4 +1,4 @@
-module github.com/wearrrrr/tree-sitter-usl
+module github.com/wearrrrr/tree-sitter-nari
 
 go 1.22
 

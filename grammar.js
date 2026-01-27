@@ -1,5 +1,5 @@
 module.exports = grammar({
-  name: 'usl',
+  name: 'nari',
 
   conflicts: $ => [
     [$.block_statement, $.object_literal],

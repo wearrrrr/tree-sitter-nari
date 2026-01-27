@@ -1,13 +1,13 @@
 [package]
-name = "tree-sitter-usl"
-description = "Usl grammar for tree-sitter"
+name = "tree-sitter-nari"
+description = "Nari grammar for tree-sitter"
 version = "0.1.0"
 authors = ["wearr <contact@wearr.dev>"]
 license = "MIT"
 readme = "README.md"
-keywords = ["incremental", "parsing", "tree-sitter", "usl"]
+keywords = ["incremental", "parsing", "tree-sitter", "nari"]
 categories = ["parser-implementations", "parsing", "text-editors"]
-repository = "https://github.com/wearrrrr/tree-sitter-usl"
+repository = "https://github.com/wearrrrr/tree-sitter-nari"
 edition = "2021"
 autoexamples = false
 

@@ -1,4 +1,4 @@
-//! This crate provides Usl language support for the [tree-sitter][] parsing library.
+//! This crate provides Nari language support for the [tree-sitter][] parsing library.
 //!
 //! Typically, you will use the [LANGUAGE][] constant to add this language to a
 //! tree-sitter [Parser][], and then use the parser to parse some code:
@@ -10,7 +10,7 @@
 //! let language = tree_sitter_nari::LANGUAGE;
 //! parser
 //!     .set_language(&language.into())
-//!     .expect("Error loading USL parser");
+//!     .expect("Error loading Nari parser");
 //! let tree = parser.parse(code, None).unwrap();
 //! assert!(!tree.root_node().has_error());
 //! ```
@@ -48,6 +48,6 @@ mod tests {
         let mut parser = tree_sitter::Parser::new();
         parser
             .set_language(&super::LANGUAGE.into())
-            .expect("Error loading USL parser");
+            .expect("Error loading Nari parser");
     }
 }

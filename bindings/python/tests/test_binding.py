@@ -9,4 +9,4 @@ class TestLanguage(TestCase):
         try:
             tree_sitter.Language(tree_sitter_nari.language())
         except Exception:
-            self.fail("Error loading USL grammar")
+            self.fail("Error loading Nari grammar")

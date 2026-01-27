@@ -1,4 +1,4 @@
-"""Usl grammar for tree-sitter"""
+"""Nari grammar for tree-sitter"""
 
 from importlib.resources import files as _files
 

@@ -1,14 +1,14 @@
 {
-  "name": "tree-sitter-usl",
+  "name": "tree-sitter-nari",
   "version": "0.1.0",
-  "description": "Tree-sitter grammar for Unnamed Scripting Language (USL)",
+  "description": "Tree-sitter grammar for Nari",
   "main": "bindings/node",
   "keywords": [
     "tree-sitter",
     "parser",
-    "usl"
+    "nari"
   ],
-  "author": "USL Contributors",
+  "author": "Nari Contributors",
   "license": "MIT",
   "dependencies": {
     "nan": "^2.18.0",
@@ -23,7 +23,7 @@
       "file-types": [
         "nari"
       ],
-      "injection-regex": "usl"
+      "injection-regex": "nari"
     }
   ]
 }

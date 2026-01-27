@@ -1,5 +1,5 @@
-#ifndef TREE_SITTER_USL_H_
-#define TREE_SITTER_USL_H_
+#ifndef TREE_SITTER_NARI_H_
+#define TREE_SITTER_NARI_H_
 
 typedef struct TSLanguage TSLanguage;
 
@@ -13,4 +13,4 @@ const TSLanguage *tree_sitter_nari(void);
 }
 #endif
 
-#endif // TREE_SITTER_USL_H_
+#endif // TREE_SITTER_NARI_H_
