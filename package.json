@@ -3,19 +3,26 @@
   "version": "0.1.0",
   "description": "Tree-sitter grammar for Unnamed Scripting Language (USL)",
   "main": "bindings/node",
-  "keywords": ["tree-sitter", "parser", "usl"],
+  "keywords": [
+    "tree-sitter",
+    "parser",
+    "usl"
+  ],
   "author": "USL Contributors",
   "license": "MIT",
   "dependencies": {
-    "nan": "^2.18.0"
+    "nan": "^2.18.0",
+    "node-addon-api": "^8.5.0"
   },
   "devDependencies": {
     "tree-sitter-cli": "^0.20.8"
   },
   "tree-sitter": [
     {
-      "scope": "source.usl",
-      "file-types": ["usl"],
+      "scope": "source.nari",
+      "file-types": [
+        "nari"
+      ],
       "injection-regex": "usl"
     }
   ]

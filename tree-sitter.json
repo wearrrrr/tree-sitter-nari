@@ -2,21 +2,21 @@
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
   "grammars": [
     {
-      "name": "usl",
-      "camelcase": "Usl",
-      "title": "USL",
-      "scope": "source.usl",
+      "name": "nari",
+      "camelcase": "Nari",
+      "title": "Nari",
+      "scope": "source.nari",
       "file-types": [
-        "usl"
+        "nari"
       ],
-      "injection-regex": "^usl$",
-      "class-name": "TreeSitterUsl"
+      "injection-regex": "^nari$",
+      "class-name": "TreeSitterNari"
     }
   ],
   "metadata": {
     "version": "0.1.0",
     "license": "MIT",
-    "description": "Usl grammar for tree-sitter",
+    "description": "Nari grammar for tree-sitter",
     "authors": [
       {
         "name": "wearr",
@@ -25,7 +25,7 @@
       }
     ],
     "links": {
-      "repository": "https://github.com/wearrrrr/tree-sitter-usl"
+      "repository": "https://github.com/wearrrrr/tree-sitter-nari"
     }
   },
   "bindings": {
