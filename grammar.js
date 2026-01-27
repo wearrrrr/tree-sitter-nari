@@ -60,7 +60,7 @@ module.exports = grammar({
     ),
 
     // Comments
-    comment: $ => token(seq('//', /.*/)),
+    comment: $ => token(prec(-10, seq('//', /.*/))),
 
     // Function declaration
     function_declaration: $ => seq(
@@ -401,10 +401,10 @@ module.exports = grammar({
       return token(choice(float, decimal));
     },
 
-    string: $ => choice(
+    string: $ => token(choice(
       seq('"', repeat(choice(/[^"\\]/, /\\./)), '"'),
       seq("'", repeat(choice(/[^'\\]/, /\\./)), "'"),
-    ),
+    )),
 
     boolean: $ => choice('true', 'false'),
 

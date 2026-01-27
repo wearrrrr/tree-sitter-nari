@@ -2230,11 +2230,6 @@
     }
   },
   {
-    "type": "string",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "string_interpolation",
     "named": true,
     "fields": {},
@@ -3569,19 +3564,11 @@
     "named": false
   },
   {
-    "type": "\"",
-    "named": false
-  },
-  {
     "type": "%",
     "named": false
   },
   {
     "type": "&&",
-    "named": false
-  },
-  {
-    "type": "'",
     "named": false
   },
   {
@@ -3772,6 +3759,10 @@
   {
     "type": "return",
     "named": false
+  },
+  {
+    "type": "string",
+    "named": true
   },
   {
     "type": "string_content",
