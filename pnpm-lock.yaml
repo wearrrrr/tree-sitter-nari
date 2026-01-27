@@ -11,6 +11,9 @@ importers:
       nan:
         specifier: ^2.18.0
         version: 2.24.0
+      node-addon-api:
+        specifier: ^8.5.0
+        version: 8.5.0
     devDependencies:
       tree-sitter-cli:
         specifier: ^0.20.8
@@ -21,6 +24,10 @@ packages:
   nan@2.24.0:
     resolution: {integrity: sha512-Vpf9qnVW1RaDkoNKFUvfxqAbtI8ncb8OJlqZ9wwpXzWPEsvsB1nvdUi6oYrHIkQ1Y/tMDnr1h4nczS0VB9Xykg==}
 
+  node-addon-api@8.5.0:
+    resolution: {integrity: sha512-/bRZty2mXUIFY/xU5HLvveNHlswNJej+RnxBjOMkidWfwZzgTbPG1E3K5TOxRLOR+5hX7bSofy8yf1hZevMS8A==}
+    engines: {node: ^18 || ^20 || >= 21}
+
   tree-sitter-cli@0.20.8:
     resolution: {integrity: sha512-XjTcS3wdTy/2cc/ptMLc/WRyOLECRYcMTrSWyhZnj1oGSOWbHLTklgsgRICU3cPfb0vy+oZCC33M43u6R1HSCA==}
     hasBin: true
@@ -28,5 +35,7 @@ packages:
 snapshots:
 
   nan@2.24.0: {}
+
+  node-addon-api@8.5.0: {}
 
   tree-sitter-cli@0.20.8: {}
