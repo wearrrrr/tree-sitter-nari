@@ -20,6 +20,7 @@ module.exports = grammar({
       'continue',
       'default',
       'else',
+      'enum',
       'finally',
       'for',
       'func',
@@ -28,11 +29,13 @@ module.exports = grammar({
       'import',
       'in',
       'let',
+      'match',
       'menu',
       'return',
       'switch',
       'throw',
       'try',
+      'type',
       'while',
     ],
   },
@@ -41,6 +44,8 @@ module.exports = grammar({
     source_file: $ => repeat($._statement),
 
     _statement: $ => choice(
+      $.type_declaration,
+      $.enum_declaration,
       $.function_declaration,
       $.variable_declaration,
       $.expression_statement,
@@ -61,6 +66,90 @@ module.exports = grammar({
 
     // Comments
     comment: $ => token(prec(-10, seq('//', /.*/))),
+
+    // Type declaration
+    type_declaration: $ => seq(
+      'type',
+      field('name', $.identifier),
+      optional(field('type_parameters', $.type_parameters)),
+      field('body', $.type_body),
+    ),
+
+    type_parameters: $ => seq(
+      '<',
+      seq(
+        $.identifier,
+        repeat(seq(',', $.identifier)),
+        optional(','),
+      ),
+      '>',
+    ),
+
+    type_body: $ => seq(
+      '{',
+      optional(seq(
+        $.type_field,
+        repeat(seq(optional(';'), $.type_field)),
+        optional(';'),
+      )),
+      '}',
+    ),
+
+    type_field: $ => seq(
+      field('name', $.identifier),
+      ':',
+      field('type', $.type_annotation),
+    ),
+
+    type_annotation: $ => seq(
+      $.identifier,
+      optional($.type_arguments),
+      optional(seq('[', ']')),
+    ),
+
+    type_arguments: $ => seq(
+      '<',
+      seq(
+        $.type_annotation,
+        repeat(seq(',', $.type_annotation)),
+        optional(','),
+      ),
+      '>',
+    ),
+
+    // Enum declaration
+    enum_declaration: $ => seq(
+      'enum',
+      field('name', $.identifier),
+      optional(field('type_parameters', $.type_parameters)),
+      field('body', $.enum_body),
+    ),
+
+    enum_body: $ => seq(
+      '{',
+      optional(seq(
+        $.enum_variant,
+        repeat(seq(optional(','), $.enum_variant)),
+        optional(','),
+      )),
+      '}',
+    ),
+
+    enum_variant: $ => seq(
+      field('name', $.identifier),
+      optional(choice(
+        seq('(', optional(seq(
+          $.type_annotation,
+          repeat(seq(',', $.type_annotation)),
+          optional(','),
+        )), ')'),
+        seq('{', optional(seq(
+          $.type_field,
+          repeat(seq(optional(','), $.type_field)),
+          optional(','),
+        )), '}'),
+      )),
+    ),
 
     // Function declaration
     function_declaration: $ => seq(
@@ -225,6 +314,7 @@ module.exports = grammar({
 
     // Expressions
     _expression: $ => choice(
+      $.match_expression,
       $.assignment_expression,
       $.binary_expression,
       $.unary_expression,
@@ -244,6 +334,60 @@ module.exports = grammar({
       $.boolean,
       $.null,
     ),
+
+    // Match expression
+    match_expression: $ => seq(
+      'match',
+      field('value', $._expression),
+      field('body', $.match_body),
+    ),
+
+    match_body: $ => seq(
+      '{',
+      optional(seq(
+        $.match_arm,
+        repeat(seq(optional(','), $.match_arm)),
+        optional(','),
+      )),
+      '}',
+    ),
+
+    match_arm: $ => seq(
+      field('pattern', $.pattern),
+      '=>',
+      field('value', $._expression),
+    ),
+
+    pattern: $ => choice(
+      $.wildcard_pattern,
+      $.literal_pattern,
+      $.variant_pattern,
+      $.identifier_pattern,
+    ),
+
+    wildcard_pattern: $ => '_',
+
+    literal_pattern: $ => choice(
+      $.number,
+      $.string,
+      $.boolean,
+      $.null,
+    ),
+
+    identifier_pattern: $ => prec(-1, $.identifier),
+
+    variant_pattern: $ => prec(1, seq(
+      field('variant', $.identifier),
+      optional(seq(
+        '(',
+        optional(seq(
+          $.pattern,
+          repeat(seq(',', $.pattern)),
+          optional(','),
+        )),
+        ')',
+      )),
+    )),
 
     // Assignment
     assignment_expression: $ => prec.right(1, seq(
