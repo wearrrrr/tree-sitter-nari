@@ -15,6 +15,15 @@
 (function_declaration
   name: (identifier) @function)
 
+(type_declaration
+  name: (identifier) @type)
+
+(enum_declaration
+  name: (identifier) @type)
+
+(enum_variant
+  name: (identifier) @type.enum.variant)
+
 (variable_declaration
   name: (identifier) @variable.definition)
 
