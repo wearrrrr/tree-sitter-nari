@@ -176,16 +176,18 @@ module.exports = grammar({
     ),
 
     // Variable declaration
-    variable_declaration: $ => seq(
+    variable_declaration: $ => prec.right(seq(
       choice('let', 'global'),
       field('name', $.identifier),
       optional(seq('=', field('value', $._expression))),
-    ),
+      optional(';'),
+    )),
 
     // Import statement
     import_statement: $ => seq(
       'import',
       field('path', $.string),
+      optional(';'),
     ),
 
     // Block statement
@@ -298,18 +300,20 @@ module.exports = grammar({
     return_statement: $ => prec.right(seq(
       'return',
       optional(field('value', $._expression)),
+      optional(';'),
     )),
 
     // Break statement
-    break_statement: $ => seq('break'),
+    break_statement: $ => seq('break', optional(';')),
 
     // Continue statement
-    continue_statement: $ => seq('continue'),
+    continue_statement: $ => seq('continue', optional(';')),
 
     // Throw statement
     throw_statement: $ => prec.right(seq(
       'throw',
-      optional(field('value', $._expression)),
+      field('value', $._expression),
+      optional(';'),
     )),
 
     // Expressions
