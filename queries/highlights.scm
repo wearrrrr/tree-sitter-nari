@@ -13,12 +13,18 @@
 ;--------------------------------
 
 (function_declaration
+  "func" @keyword
   name: (identifier) @function)
 
+(function_expression
+  "func" @keyword)
+
 (type_declaration
+  "type" @keyword
   name: (identifier) @type)
 
 (enum_declaration
+  "enum" @keyword
   name: (identifier) @type)
 
 (enum_variant
@@ -110,6 +116,12 @@
 [
   "?"
 ] @punctuation.special
+
+; Match expressions
+;------------------
+
+(match_expression
+  "match" @keyword)
 
 ; Keywords
 ;---------
